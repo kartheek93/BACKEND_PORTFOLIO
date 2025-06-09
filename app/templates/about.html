@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}About Me – My Portfolio{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="container">
+  <div class="text-section">
+    <p class="subtext">Introduction</p>
+    <h2 class="heading">Overview.</h2>
+    <p class="description">
+      I actively explore ways to automate manual and recurring tasks using AI tools, boosting efficiency and reducing operational overhead.
+
+I’m a dedicated and detail-oriented Operations Associate with a solid foundation in technical and backend operations. I’ve gained hands-on experience managing technical content, streamlining workflows, and coordinating closely with development teams to ensure smooth backend processes.
+With strong skills in Python and SQL, I’m currently upskilling in backend development, focusing on Flask and PostgreSQL.
+ </p>
+<p>I’ve built this portfolio as part of my transition into a Backend Developer role—using the very technologies I’m mastering to showcase my growth and capabilities.
+    </p>
+  </div>
+
+  <div class="cards">
+    {% for service in services %}
+    <div class="card animate-on-scroll">
+      <img src="{{ service.icon }}" alt="{{ service.title }}" />
+      <h3>{{ service.title }}</h3>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="alt-section">
+  <div class="alt-content left-text">
+    <div class="alt-text">
+      <h3>🌱 My Journey</h3>
+      <p>Started as an Operations Associate, now crafting backend systems using Python, Flask & PostgreSQL. This transition has shaped my ability to work under pressure and deliver clean, scalable code.</p>
+    </div>
+    <img src="{{ url_for('static', filename='images/image1.jpg') }}" alt="Journey">
+  </div>
+
+  <div class="alt-content right-text">
+    <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Strengths">
+    <div class="alt-text">
+      <h3>What Sets Me Apart</h3>
+      <p>Adaptability, precision, and dedication. I take ownership of my tasks and constantly seek opportunities to grow and contribute with meaningful impact.</p>
+    </div>
+    
+  </div>
+
+  <div class="alt-content left-text">
+    <div class="alt-text">
+      <h3>My Vision</h3>
+      <p>To innovate meaningful solutions that solve real-world problems using the power of tech, and contribute to companies that care about quality, performance, and user experience.</p>
+    </div>
+    <img src="{{ url_for('static', filename='images/image3.jpg') }}" alt="Vision">
+  </div>
+
+  <div class="resume-download" style="text-align: center;">
+  <button class="btn-download" onclick="location.href='{{ url_for('static', filename='karthik_resume93.pdf') }}'">
+    📄 Download Resume
+  </button>
+  </div>
+
+</section>
+
+<!-- <div id="about"></div>
+
+  <script>
+    fetch("/about")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("about").innerHTML = `
+          <img src="${data.photo_url}" width="100" />
+          <h3>${data.name}</h3>
+          <p>${data.bio}</p>
+        `;
+      });
+  </script> -->
+
+
+{% endblock %}

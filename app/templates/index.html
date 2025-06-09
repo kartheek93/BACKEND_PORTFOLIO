@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Home – My Portfolio{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h2>Hi, Myself</h2>
+    <h1>V Karthik</h1>
+    <h3>And I'm a 
+      <span class="typed-text">Working professional</span>
+      <span class="cursor">|</span>
+    </h3>
+    <p>I'm an Operations Associate transitioning to a backend developer, building robust solutions with a focus on efficiency and innovation.</p>
+    <div class="social-icons">
+      <a href="https://github.com/kartheek93"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/kartheek-v"><i class="fab fa-linkedin"></i></a>
+      <a href="https://instagram.com/krazy_karthik_0"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/vkartheek0000"><i class="fab fa-twitter"></i></a>
+      <a href="mailto:vkarthik9381@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.hackerrank.com/profile/vkartheek0000"><i class="fab fa-hackerrank"></i></a>
+    </div>
+    <a href="#about" class="btn-about">About Me</a>
+  </div>
+  <div class="hero-img">
+    <img src="{{ url_for('static', filename='images/Karthik3.jpg') }}" alt="Karthik Photo">
+  </div>
+</section>
+
+<!-- <a href="#about" class="scroll-down">Scroll ↓</a> -->
+
+<section id="about" class="scroll-section">
+  <h2>About</h2>
+  <p>Learn more about my background, experience, and the journey that led me into software development.</p>
+  <a href="/about-page" class="btn-section">Explore About</a>
+</section>
+
+<section id="projects" class="scroll-section">
+  <h2>Projects</h2>
+  <p>Explore some of the impactful and technically challenging projects I've built and contributed to.</p>
+  <a href="/project-page" class="btn-section">View Projects</a>
+</section>
+
+<section id="skills" class="scroll-section">
+  <h2>Skills</h2>
+  <p>Take a look at the technologies and tools I specialize in, across backend, frontend, and data domains.</p>
+  <a href="/skills-page" class="btn-section">See My Skills</a>
+</section>
+
+<section id="contact" class="scroll-section">
+  <h2>Contact</h2>
+  <p>Have a question, collaboration idea, or opportunity? Reach out to start a conversation with me.</p>
+  <a href="/contact-page" class="btn-section">Get in Touch</a>
+</section>
+
+{% endblock %}

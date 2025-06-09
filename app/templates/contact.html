@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+  <h2 class="contact-heading">Contact Me</h2>
+
+  <form id="contactForm" class="contact-form animate-on-scroll">
+    <input name="name" type="text" placeholder="Your Name" required />
+    <input name="email" type="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send</button>
+    <p id="status"></p>
+  </form>
+
+</section>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message")
+    };
+    fetch("/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("status").innerText = data.message;
+      this.reset();
+    });
+  });
+</script>
+
+<footer>
+    <div class="container">
+      <p>&copy; 2025 <b>V karthik</b>. All rights reserved.</p>
+    </div>
+  </footer>
+
+{% endblock %}

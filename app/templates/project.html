@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Projects – My Portfolio{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='projects.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="projects-container">
+  <h2 class="projects-heading">My Projects</h2>
+  <div class="projects-grid">
+    <!-- Project Card 1 -->
+    <div class="project-card animate-on-scroll">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Project One">
+      <div class="project-info">
+        <h3>My Portfolio</h3>
+        <p>A portfolio powered by Python, Flask, and PostgreSQL — built to solve real problems.</p>
+        <a href="#" class="btn-project">View Details</a>
+      </div>
+    </div>
+    <!-- Project Card 2 -->
+    <div class="project-card animate-on-scroll">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Project Two">
+      <div class="project-info">
+        <h3>SLMS</h3>
+        <p>A barcode-based Smart Library Management System with an Android app for efficient book management and user convenience.</p>
+        <a href="https://github.com/kartheek93/Library-Management-System" class="btn-project">View Details</a>
+      </div>
+    </div>
+    <!-- Project Card 3 -->
+    <!-- <div class="project-card animate-on-scroll">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Project Three">
+      <div class="project-info">
+        <h3>Project Three</h3>
+        <p>A mobile-first PWA for note-taking, with offline sync via Service Workers.</p>
+        <a href="#" class="btn-project">View Details</a>
+      </div> -->
+
+</section>
+
+
+
+
+  
+
+
+
+{% endblock %}

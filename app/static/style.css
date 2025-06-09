@@ -1,0 +1,137 @@
+/* === Root Variables & Themes === */
+:root {
+  --bg-color: #0c1022;
+  --text-color: #ffffff;
+  --link-color: #ffffff;
+  --link-hover-bg: rgb(0, 49, 197);
+  --accent-color: #00bfff;
+}
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #0c1022;
+  --link-color: #0c1022;
+  --link-hover-bg: rgba(0, 251, 50, 0.726);
+  --accent-color: #2ace24;
+}
+
+/* === Reset & Base === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+.container { max-width: 1200px; margin: auto; padding: 20px; }
+
+/* === Header & Nav === */
+.main-header {
+  background: var(--bg-color);
+  border-bottom: 0px solid var(--accent-color);
+  position: sticky; top: 0; z-index: 1000;
+}
+.header-container {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; padding: 10px 20px;
+  position: relative;    /* ensure z-index children stack */
+}
+
+/* Brand */
+.brand { display: flex; align-items: center; gap: 1rem; }
+.logo-img { width: 150px; height: 80px; object-fit: contain; }
+.site-title { font-size: 1.8rem; color: var(--text-color); }
+
+/* Nav Links */
+.nav-links {
+  display: flex; gap: 20px;
+  transition: all 0.3s ease;
+}
+.nav-links a {
+  color: var(--link-color);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.nav-links a:hover { background: var(--link-hover-bg); }
+
+/* Hamburger (hidden on desktop) */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--accent-color);
+  z-index: 1100;          /* ensure on top of nav panel */
+}
+
+/* Theme Icons */
+.theme-toggle-icons {
+  display: flex; gap: 0.5rem; font-size: 1.4rem; cursor: pointer;
+  color: var(--accent-color);
+  z-index: 1100;          /* ensure on top */
+}
+.theme-toggle-icons i { transition: transform 0.2s; }
+.theme-toggle-icons i:hover { transform: scale(1.2); }
+
+/* === Show only relevant theme icon === */
+#sun-icon,
+#moon-icon { display: none; }
+[data-theme="light"] #moon-icon { display: inline; }
+[data-theme="dark"]  #sun-icon  { display: inline; }
+
+/* === Responsive Nav === */
+/* === Responsive Nav - Fixed === */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 10px 15px;
+    gap: 15px;
+  }
+
+  .hamburger {
+    display: block;
+    order: 2; /* Place between brand and theme toggle */
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--bg-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 15px 0;
+    border-top: 1px solid var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 999;
+  }
+
+  .nav-links.active { 
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  .theme-toggle-icons {
+    position: static;
+    order: 3; /* Right-most element */
+  }
+
+  /* Brand alignment */
+  .brand {
+    order: 1;
+    flex-grow: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

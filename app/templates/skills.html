@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Skills{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='skills.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="skills-section">
+  <h2 class="skills-title">My Skills</h2>
+  <div class="skills-grid">
+    <!-- Skill Card -->
+    <div class="skill-card animate-on-scroll">
+      <img src="{{ url_for('static', filename='Icons/python.png') }}" class="skill-icon-img" alt="Python">
+      <h3>Python</h3>
+      <div class="progress-bar"><span style="width: 88%;"></span></div>
+    </div>
+
+    <div class="skill-card animate-on-scroll">
+      <img src="{{ url_for('static', filename='Icons/flask.png') }}" class="skill-icon-img" alt="Flask">
+      <h3>Flask</h3>
+      <div class="progress-bar"><span style="width: 80%;"></span></div>
+    </div>
+
+    <div class="skill-card animate-on-scroll">
+      <i class="fab fa-html5 skill-icon" style="color: #e34c26;"></i>
+      <h3>HTML</h3>
+      <div class="progress-bar"><span style="width: 90%;"></span></div>
+    </div>
+
+    <div class="skill-card animate-on-scroll">
+      <i class="fab fa-css3-alt skill-icon" style="color: #264de4;"></i>
+      <h3>CSS</h3>
+      <div class="progress-bar"><span style="width: 85%;"></span></div>
+    </div>
+
+    <div class="skill-card animate-on-scroll">
+      <i class="fas fa-database skill-icon" style="color: #00758F;"></i>
+      <h3>SQL</h3>
+      <div class="progress-bar"><span style="width: 75%;"></span></div>
+    </div>
+
+    <div class="skill-card animate-on-scroll">
+      <i class="fab fa-js skill-icon" style="color: #f7df1e;"></i>
+      <h3>JavaScript</h3>
+      <div class="progress-bar"><span style="width: 80%;"></span></div>
+    </div>
+
+
+    <div class="skill-card animate-on-scroll">
+      <img src="{{ url_for('static', filename='Icons/excell.jpg') }}" class="skill-icon-img" alt="Excel">
+      <h3>Excel Sheets</h3>
+      <div class="progress-bar"><span style="width: 70%;"></span></div>
+    </div>
+  </div>
+</section>
+
+  
+
+
+{% endblock %}
