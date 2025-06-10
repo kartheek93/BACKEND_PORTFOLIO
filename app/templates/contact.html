@@ -29,17 +29,17 @@
       email: formData.get("email"),
       message: formData.get("message")
     };
-    fetch("/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    })
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("status").innerText = data.message;
-      this.reset();
-    });
-  });
+  //   fetch("/contact", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(payload)
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     document.getElementById("status").innerText = data.message;
+  //     this.reset();
+  //   });
+   });
 </script>
 
 <footer>
@@ -47,5 +47,6 @@
       <p>&copy; 2025 <b>V karthik</b>. All rights reserved.</p>
     </div>
   </footer>
+
 
 {% endblock %}
