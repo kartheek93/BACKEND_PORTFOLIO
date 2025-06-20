@@ -1,5 +1,8 @@
 from flask import Blueprint, jsonify, request, render_template
 from .models import db, About, Project, Skill, Contact
+from . import mail
+from flask_mail import Message
+from flask import current_app
 
 main = Blueprint("main", __name__)
 
@@ -56,4 +59,17 @@ def contact():
     new_msg = Contact(name=data["name"], email=data["email"], message=data["message"])
     db.session.add(new_msg)
     db.session.commit()
+
+    msg = Message(
+    subject="New Contact Form Submission",
+    sender=current_app.config['MAIL_USERNAME'],  # must match your Gmail
+    recipients=[current_app.config['MAIL_USERNAME']],  # send to yourself
+    body=f"""
+    Name: {data['name']}
+    Email: {data['email']}
+    Message: {data['message']}
+    """
+    )
+    mail.send(msg)
+
     return jsonify({"message": "Message received!"})
